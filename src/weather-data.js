@@ -1,0 +1,6 @@
+const weatherObject = () => {
+    let weatherData = {
+        
+    }
+
+};

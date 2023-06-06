@@ -1,11 +1,5 @@
 import "normalize.css";
+import * as weather from "./weather-facilitator";
 
-const name = 'James'
 
-const person = {first: name}
-
-console.log(person)
-
-const sayHelloLinting = (fName) => {
-console.log(`Hello linting, ${fName}`);
-};
+weather.getWeatherData("london");
