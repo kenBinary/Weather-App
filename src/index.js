@@ -1,2 +1,11 @@
-import  "normalize.css";
-console.log("bruh")
+import "normalize.css";
+
+const name = 'James'
+
+const person = {first: name}
+
+console.log(person)
+
+const sayHelloLinting = (fName) => {
+console.log(`Hello linting, ${fName}`);
+};
