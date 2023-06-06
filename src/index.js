@@ -1,5 +1,4 @@
 import "normalize.css";
 import * as weather from "./weather-facilitator";
 
-
-weather.getWeatherData("london");
+console.log(await weather.getWeatherData("london"));
