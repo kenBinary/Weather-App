@@ -1,0 +1,18 @@
+-be able to search for specific location
+-toggle between fahrenheit and celsius
+-page background should depend on location
+
+
+development
+-setup webpack
+-setup html,css and javascript
+-function that take location and return weather data
+-function that process JSON data and return an object for my app
+-get user input for their location
+-display information on website
+
+
+WHAT I NEED TO DISPLAY ON THE WEBPAGE
+-CARD FOR location
+-card for current weather
+-multiple cards for forecast

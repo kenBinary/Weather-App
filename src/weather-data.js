@@ -29,7 +29,6 @@ const weatherData = (weatherObject) => {
         "country": weatherObject.location.country,
         "localtime": weatherObject.location.localtime,
         "region": weatherObject.location.region
-
     };
     weatherObject.forecast.forecastday.forEach((dayForecast) => {
         foreCastArray.push(
