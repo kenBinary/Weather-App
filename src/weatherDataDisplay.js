@@ -4,7 +4,7 @@
 // get date
 // get country
 // get region
-import * as weather from "./weather-facilitator";
+// updates main information display
 function updateMainInfo(currentWeather, weatherLocation) {
     const conditionIcon = document.querySelector(".condition-icon");
     const condition = document.querySelector(".condition");
@@ -23,6 +23,7 @@ function updateMainInfo(currentWeather, weatherLocation) {
     country.textContent = weatherLocation.country;
     region.textContent = weatherLocation.region;
 }
+// updates forecast information display
 function updateForecastInfo(forecastArray) {
     const forecastCards = Array.from(document.querySelector(".forecast").children);
     forecastCards.forEach((element, index) => {

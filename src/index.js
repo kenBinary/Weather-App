@@ -10,9 +10,20 @@ import * as displayData from "./weatherDataDisplay";
 // console.log(x.currentWeather);
 // console.log(x.weatherLocation);
 // console.log(x.forecastArray);
+
+// initialize weather on website startup
+weather.getWeatherData("Cebu").then((response) => {
+    let weatherObject = weatherData(response);
+    return weatherObject;
+}).then((response) => {
+    displayData.updateMainInfo(response.currentWeather, response.weatherLocation);
+    displayData.updateForecastInfo(response.forecastArray);
+});
+
+
+// updates information on weather when search button is clicked
 const searchLocation = document.querySelector("#search-location");
 const searchValue = document.querySelector("#search-value");
-
 searchLocation.addEventListener('click', () => {
     weather.getWeatherData(searchValue.value).then((response) => {
         let weatherObject = weatherData(response);
