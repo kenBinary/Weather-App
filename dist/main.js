@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n\r\n\r\nconsole.log(\"bruh\");\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n/* harmony import */ var _weather_facilitator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather-facilitator */ \"./src/weather-facilitator.js\");\n/* harmony import */ var _weather_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./weather-data */ \"./src/weather-data.js\");\n\r\n\r\n\r\n\r\n// console.log(await weather.getWeatherData(\"london\"));\r\n// let y = await weather.getWeatherData(\"london\");\r\n// console.log(y);\r\n// let x = weatherData(y);\r\n// console.log(x.foreCastArray);\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/weather-data.js":
+/*!*****************************!*\
+  !*** ./src/weather-data.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// INFORMATION ON CURRENT WEATHER\r\n// weather condition\r\n// feels like in C and F\r\n// tempearture in C and F\r\n// \r\n\r\n// INFORMATION ON SELECTED LOCATION\r\n// country\r\n// localtime\r\n// region\r\n\r\n// INFORMATION ON FORECAST\r\n// date\r\n// avg temp in C and F\r\n// weather condition\r\n// \r\n\r\nconst weatherData = (weatherObject) => {\r\n    let foreCastArray = [];\r\n    let currentWeather = {\r\n        \"condition\": weatherObject.current.condition.text,\r\n        \"conditionIcon\": weatherObject.current.condition.icon,\r\n        \"feelsLike_C\": weatherObject.current.feelslike_c,\r\n        \"feelsLike_F\": weatherObject.current.feelslike_f,\r\n        \"temperature_C\": weatherObject.current.temp_c,\r\n        \"temperature_F\": weatherObject.current.temp_f,\r\n    };\r\n    let weatherLocation = {\r\n        \"country\": weatherObject.location.country,\r\n        \"localtime\": weatherObject.location.localtime,\r\n        \"region\": weatherObject.location.region\r\n\r\n    };\r\n    weatherObject.forecast.forecastday.forEach((dayForecast) => {\r\n        foreCastArray.push(\r\n            {\r\n                \"date\": dayForecast.date,\r\n                \"avgTemp_C\": dayForecast.day.avgtemp_c,\r\n                \"avgTemp_F\": dayForecast.day.avgtemp_f,\r\n                \"dayCondition\": dayForecast.day.condition.text,\r\n                \"dayConditionIcon\": dayForecast.day.condition.icon\r\n            }\r\n        )\r\n    });\r\n    return { currentWeather, weatherLocation, foreCastArray };\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weatherData);\n\n//# sourceURL=webpack://weather-app/./src/weather-data.js?");
+
+/***/ }),
+
+/***/ "./src/weather-facilitator.js":
+/*!************************************!*\
+  !*** ./src/weather-facilitator.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getWeatherData: () => (/* binding */ getWeatherData)\n/* harmony export */ });\n//get weather based on location\r\n//send weather from request\r\n//parse weather data from json to object\r\n\r\nasync function getWeatherData(location) {\r\n    const weather = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=e10f38eaf56c4afbaec120146230406&q=${location}&days=7&aqi=yes&alerts=yes`);\r\n    const weatherData = weather.json();\r\n    return weatherData;\r\n}\r\n\n\n//# sourceURL=webpack://weather-app/./src/weather-facilitator.js?");
 
 /***/ })
 
