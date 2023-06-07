@@ -31,6 +31,55 @@ body {
     }
 }
 .main-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    * {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    > .condition-info {
+        * {
+            outline: 1px solid pink;
+        }
+        height: 15%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 2fr 3fr;
+        font-size: 1.9rem;
+        .condition-icon {
+            grid-column: 1/2;
+            grid-row: 1/3;
+        }
+        > :nth-child(n + 2) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    > .weather-info {
+        outline: 1px solid pink;
+        display: flex;
+        justify-content: start;
+        padding-left: 1rem;
+        align-items: center;
+        font-size: 1.9rem;
+    }
+    > .search {
+        flex-grow: 0 !important;
+        height: 6%;
+        display: flex;
+        column-gap: 5px;
+        > :first-child {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+        }
+        > :last-child {
+            border-radius: 5px;
+        }
+    }
 }
 .forecast {
     display: flex;
