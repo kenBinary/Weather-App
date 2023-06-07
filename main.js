@@ -114,9 +114,9 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n/* harmony import */ var _weather_facilitator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather-facilitator */ \"./src/weather-facilitator.js\");\n/* harmony import */ var _weather_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./weather-data */ \"./src/weather-data.js\");\n\r\n\r\n\r\n\r\n// console.log(await weather.getWeatherData(\"london\"));\r\n// let y = await weather.getWeatherData(\"london\");\r\n// console.log(y);\r\n// let x = weatherData(y);\r\n// console.log(x.foreCastArray);\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n/* harmony import */ var _weather_facilitator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather-facilitator */ \"./src/weather-facilitator.js\");\n/* harmony import */ var _weather_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./weather-data */ \"./src/weather-data.js\");\n\r\n\r\n\r\n\r\n// console.log(await weather.getWeatherData(\"london\"));\r\nlet y = await _weather_facilitator__WEBPACK_IMPORTED_MODULE_1__.getWeatherData(\"london\");\r\nconsole.log(y);\r\n// let x = weatherData(y);\r\n// console.log(x.currentWeather);\r\n// console.log(x.weatherLocation);\r\n// console.log(x.foreCastArray);\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var norm
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// INFORMATION ON CURRENT WEATHER\r\n// weather condition\r\n// feels like in C and F\r\n// tempearture in C and F\r\n// \r\n\r\n// INFORMATION ON SELECTED LOCATION\r\n// country\r\n// localtime\r\n// region\r\n\r\n// INFORMATION ON FORECAST\r\n// date\r\n// avg temp in C and F\r\n// weather condition\r\n// \r\n\r\nconst weatherData = (weatherObject) => {\r\n    let foreCastArray = [];\r\n    let currentWeather = {\r\n        \"condition\": weatherObject.current.condition.text,\r\n        \"conditionIcon\": weatherObject.current.condition.icon,\r\n        \"feelsLike_C\": weatherObject.current.feelslike_c,\r\n        \"feelsLike_F\": weatherObject.current.feelslike_f,\r\n        \"temperature_C\": weatherObject.current.temp_c,\r\n        \"temperature_F\": weatherObject.current.temp_f,\r\n    };\r\n    let weatherLocation = {\r\n        \"country\": weatherObject.location.country,\r\n        \"localtime\": weatherObject.location.localtime,\r\n        \"region\": weatherObject.location.region\r\n\r\n    };\r\n    weatherObject.forecast.forecastday.forEach((dayForecast) => {\r\n        foreCastArray.push(\r\n            {\r\n                \"date\": dayForecast.date,\r\n                \"avgTemp_C\": dayForecast.day.avgtemp_c,\r\n                \"avgTemp_F\": dayForecast.day.avgtemp_f,\r\n                \"dayCondition\": dayForecast.day.condition.text,\r\n                \"dayConditionIcon\": dayForecast.day.condition.icon\r\n            }\r\n        )\r\n    });\r\n    return { currentWeather, weatherLocation, foreCastArray };\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weatherData);\n\n//# sourceURL=webpack://weather-app/./src/weather-data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// INFORMATION ON CURRENT WEATHER\r\n// weather condition\r\n// feels like in C and F\r\n// tempearture in C and F\r\n// \r\n\r\n// INFORMATION ON SELECTED LOCATION\r\n// country\r\n// localtime\r\n// region\r\n\r\n// INFORMATION ON FORECAST\r\n// date\r\n// avg temp in C and F\r\n// weather condition\r\n// \r\n\r\nconst weatherData = (weatherObject) => {\r\n    let foreCastArray = [];\r\n    let currentWeather = {\r\n        \"condition\": weatherObject.current.condition.text,\r\n        \"conditionIcon\": weatherObject.current.condition.icon,\r\n        \"feelsLike_C\": weatherObject.current.feelslike_c,\r\n        \"feelsLike_F\": weatherObject.current.feelslike_f,\r\n        \"temperature_C\": weatherObject.current.temp_c,\r\n        \"temperature_F\": weatherObject.current.temp_f,\r\n    };\r\n    let weatherLocation = {\r\n        \"country\": weatherObject.location.country,\r\n        \"localtime\": weatherObject.location.localtime,\r\n        \"region\": weatherObject.location.region\r\n    };\r\n    weatherObject.forecast.forecastday.forEach((dayForecast) => {\r\n        foreCastArray.push(\r\n            {\r\n                \"date\": dayForecast.date,\r\n                \"avgTemp_C\": dayForecast.day.avgtemp_c,\r\n                \"avgTemp_F\": dayForecast.day.avgtemp_f,\r\n                \"dayCondition\": dayForecast.day.condition.text,\r\n                \"dayConditionIcon\": dayForecast.day.condition.icon\r\n            }\r\n        )\r\n    });\r\n    return { currentWeather, weatherLocation, foreCastArray };\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weatherData);\n\n//# sourceURL=webpack://weather-app/./src/weather-data.js?");
 
 /***/ }),
 
@@ -167,6 +167,75 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && !queue.d) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = 1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
