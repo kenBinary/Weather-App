@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  outline: 1px solid pink;
+}
+
+body {
+  padding: 1rem;
+  background-image: url("./resources/background.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100dvh;
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+}
+body > :first-child {
+  height: 68%;
+  width: 25%;
+  background-color: rebeccapurple;
+  padding: 0.5rem;
+}
+body > :nth-child(n+2) {
+  height: 32%;
+  background-color: rebeccapurple;
+  padding: 0.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
