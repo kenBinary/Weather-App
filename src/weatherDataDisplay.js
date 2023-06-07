@@ -1,3 +1,4 @@
+import * as dateFns from "date-fns";
 // get condition along with icon
 // get temp feels
 // get avg temperature
@@ -19,7 +20,7 @@ function updateMainInfo(currentWeather, weatherLocation) {
     const region = document.querySelector(".region");
 
     temperature.textContent = currentWeather.temperature_C;
-    localtime.textContent = weatherLocation.localtime;
+    localtime.textContent = dateFns.format(new Date(weatherLocation.localtime), "MMMM do y");
     country.textContent = weatherLocation.country;
     region.textContent = weatherLocation.region;
 }
@@ -31,7 +32,7 @@ function updateForecastInfo(forecastArray) {
         cardDetails[0].src = `https:${forecastArray[index].dayConditionIcon}`;
         cardDetails[1].textContent = forecastArray[index].dayCondition;
         cardDetails[2].textContent = forecastArray[index].avgTemp_C;
-        cardDetails[3].textContent = forecastArray[index].date;
+        cardDetails[3].textContent = dateFns.format(new Date(forecastArray[index].date), "MMMM do y");
     });
 }
 function updateSystem(isFahrenheit, currentWeather, forecastArray) {
