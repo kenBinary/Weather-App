@@ -29,6 +29,58 @@ body > :nth-child(n+2) {
   padding: 0.5rem;
 }
 
+.main-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.main-info * {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.main-info > .condition-info {
+  height: 15%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 2fr 3fr;
+  font-size: 1.9rem;
+}
+.main-info > .condition-info * {
+  outline: 1px solid pink;
+}
+.main-info > .condition-info .condition-icon {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+.main-info > .condition-info > :nth-child(n+2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-info > .weather-info {
+  outline: 1px solid pink;
+  display: flex;
+  justify-content: start;
+  padding-left: 1rem;
+  align-items: center;
+  font-size: 1.9rem;
+}
+.main-info > .search {
+  flex-grow: 0 !important;
+  height: 6%;
+  display: flex;
+  column-gap: 5px;
+}
+.main-info > .search > :first-child {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+.main-info > .search > :last-child {
+  border-radius: 5px;
+}
+
 .forecast {
   display: flex;
   column-gap: 0.5rem;
