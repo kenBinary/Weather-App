@@ -16,7 +16,7 @@
 // 
 
 const weatherData = (weatherObject) => {
-    let foreCastArray = [];
+    let forecastArray = [];
     let currentWeather = {
         "condition": weatherObject.current.condition.text,
         "conditionIcon": weatherObject.current.condition.icon,
@@ -31,7 +31,7 @@ const weatherData = (weatherObject) => {
         "region": weatherObject.location.region
     };
     weatherObject.forecast.forecastday.forEach((dayForecast) => {
-        foreCastArray.push(
+        forecastArray.push(
             {
                 "date": dayForecast.date,
                 "avgTemp_C": dayForecast.day.avgtemp_c,
@@ -41,6 +41,6 @@ const weatherData = (weatherObject) => {
             }
         )
     });
-    return { currentWeather, weatherLocation, foreCastArray };
+    return { currentWeather, weatherLocation, forecastArray };
 };
 export default weatherData;
