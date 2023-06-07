@@ -11,6 +11,7 @@
     border: 1px solid rgba(209, 213, 219, 0.3);
 }
 body {
+    position: relative;
     padding: 1rem;
     background-image: url("./resources/background.gif");
     background-size: cover;
@@ -19,13 +20,13 @@ body {
     display: flex;
     row-gap: 10px;
     flex-direction: column;
-    > :first-child {
+    > .main-info {
         height: 68%;
         width: 25%;
         padding: 0.5rem;
         @include glassEffect();
     }
-    > :nth-child(n + 2) {
+    > .forecast {
         height: 32%;
         padding: 0.5rem;
     }
@@ -84,7 +85,7 @@ body {
             cursor: pointer;
             border: 2px solid black;
         }
-        >:last-child:hover{
+        > :last-child:hover {
             background-color: grey;
         }
     }
@@ -111,4 +112,33 @@ body {
             align-self: center;
         }
     }
+}
+.switch-system {
+    @include glassEffect();
+    position: absolute;
+    z-index: 2;
+    right: 1rem;
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    > span {
+        color: white;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255,0.2);
+        width: 50%;
+        border-radius: 12px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        transition: 0.3s;
+        user-select: none;
+    }
+}
+.change-system {
+    transform: translateX(100%);
 }
