@@ -39,9 +39,6 @@ body {
         flex-shrink: 1;
     }
     > .condition-info {
-        * {
-            outline: 1px solid pink;
-        }
         height: 15%;
         display: grid;
         justify-content: center;
@@ -58,7 +55,6 @@ body {
         }
     }
     > .weather-info {
-        outline: 1px solid pink;
         display: flex;
         justify-content: start;
         padding-left: 1rem;
@@ -91,7 +87,6 @@ body {
         display: flex;
         flex-direction: column;
         *{
-            outline: 1px solid pink;
             flex-grow: 1;
             display: flex;
             justify-content: center;
