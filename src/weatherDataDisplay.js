@@ -34,4 +34,33 @@ function updateForecastInfo(forecastArray) {
         cardDetails[3].textContent = forecastArray[index].date;
     });
 }
-export { updateMainInfo, updateForecastInfo }
+function updateSystem(isFahrenheit, currentWeather, forecastArray) {
+    if (isFahrenheit) {
+        // update system on main card
+        const TempFeels = document.querySelector(".temp-feels");
+        const Temperature = document.querySelector(".temperature");
+        TempFeels.textContent = currentWeather.feelsLike_F;
+        Temperature.textContent = currentWeather.temperature_F;
+        // udpate system on forecast card
+        const forecastCards = Array.from(document.querySelector(".forecast").children);
+        forecastCards.forEach((element, index) => {
+            let cardDetails = Array.from(element.children);
+            cardDetails[2].textContent = forecastArray[index].avgTemp_F;
+        });
+    }
+    else {
+        // update system on main card
+        const TempFeels = document.querySelector(".temp-feels");
+        const Temperature = document.querySelector(".temperature");
+        TempFeels.textContent = currentWeather.feelsLike_C;
+        Temperature.textContent = currentWeather.temperature_C;
+        // udpate system on forecast card
+        const forecastCards = Array.from(document.querySelector(".forecast").children);
+        forecastCards.forEach((element, index) => {
+            let cardDetails = Array.from(element.children);
+            cardDetails[2].textContent = forecastArray[index].avgTemp_C;
+        });
+    }
+
+}
+export { updateMainInfo, updateForecastInfo, updateSystem }

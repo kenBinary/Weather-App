@@ -5,6 +5,7 @@
 }
 
 body {
+  position: relative;
   padding: 1rem;
   background-image: url("./resources/background.gif");
   background-size: cover;
@@ -14,7 +15,7 @@ body {
   row-gap: 10px;
   flex-direction: column;
 }
-body > :first-child {
+body > .main-info {
   height: 68%;
   width: 25%;
   padding: 0.5rem;
@@ -24,7 +25,7 @@ body > :first-child {
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
-body > :nth-child(n+2) {
+body > .forecast {
   height: 32%;
   padding: 0.5rem;
 }
@@ -115,6 +116,41 @@ body > :nth-child(n+2) {
   width: 50%;
   height: 40%;
   align-self: center;
+}
+
+.switch-system {
+  backdrop-filter: blur(5px) saturate(200%);
+  -webkit-backdrop-filter: blur(5px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  width: 4rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+.switch-system > span {
+  color: white;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.change-system {
+  transform: translateX(100%);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,9 +11,10 @@ import * as displayData from "./weatherDataDisplay";
 // console.log(x.weatherLocation);
 // console.log(x.forecastArray);
 
+let weatherObject;
 // initialize weather on website startup
 weather.getWeatherData("Cebu").then((response) => {
-    let weatherObject = weatherData(response);
+    weatherObject = weatherData(response);
     return weatherObject;
 }).then((response) => {
     displayData.updateMainInfo(response.currentWeather, response.weatherLocation);
@@ -26,11 +27,26 @@ const searchLocation = document.querySelector("#search-location");
 const searchValue = document.querySelector("#search-value");
 searchLocation.addEventListener('click', () => {
     weather.getWeatherData(searchValue.value).then((response) => {
-        let weatherObject = weatherData(response);
+        weatherObject = weatherData(response);
         return weatherObject;
     }).then((response) => {
         displayData.updateMainInfo(response.currentWeather, response.weatherLocation);
         displayData.updateForecastInfo(response.forecastArray);
         searchValue.value = "";
     });
+});
+
+// toggle between inferior and superior measurment system
+const toggle = document.querySelector(".switch-system");
+toggle.addEventListener('click', () => {
+    const currentSystem = document.querySelector(".system");
+    let toggled = currentSystem.classList.toggle("change-system");
+    if (toggled) {
+        currentSystem.textContent = "F";
+        displayData.updateSystem(toggled, weatherObject.currentWeather, weatherObject.forecastArray);
+    }
+    else {
+        currentSystem.textContent = "C";
+        displayData.updateSystem(toggled, weatherObject.currentWeather, weatherObject.forecastArray);
+    }
 });
