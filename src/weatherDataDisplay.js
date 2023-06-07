@@ -12,14 +12,14 @@ function updateMainInfo(currentWeather, weatherLocation) {
     const tempFeels = document.querySelector(".temp-feels");
     conditionIcon.src = `https:${currentWeather.conditionIcon}`;
     condition.textContent = currentWeather.condition;
-    tempFeels.textContent = currentWeather.feelsLike_C;
+    tempFeels.textContent = currentWeather.feelsLike_C + "\u00B0" + "C";
 
     const temperature = document.querySelector(".temperature");
     const localtime = document.querySelector(".localtime");
     const country = document.querySelector(".country");
     const region = document.querySelector(".region");
 
-    temperature.textContent = currentWeather.temperature_C;
+    temperature.textContent = currentWeather.temperature_C + "\u00B0" + "C";
     localtime.textContent = dateFns.format(new Date(weatherLocation.localtime), "MMMM do y");
     country.textContent = weatherLocation.country;
     region.textContent = weatherLocation.region;
@@ -31,7 +31,7 @@ function updateForecastInfo(forecastArray) {
         let cardDetails = Array.from(element.children);
         cardDetails[0].src = `https:${forecastArray[index].dayConditionIcon}`;
         cardDetails[1].textContent = forecastArray[index].dayCondition;
-        cardDetails[2].textContent = forecastArray[index].avgTemp_C;
+        cardDetails[2].textContent = forecastArray[index].avgTemp_C + "\u00B0" + "C";
         cardDetails[3].textContent = dateFns.format(new Date(forecastArray[index].date), "MMMM do y");
     });
 }
@@ -40,26 +40,26 @@ function updateSystem(isFahrenheit, currentWeather, forecastArray) {
         // update system on main card
         const TempFeels = document.querySelector(".temp-feels");
         const Temperature = document.querySelector(".temperature");
-        TempFeels.textContent = currentWeather.feelsLike_F;
-        Temperature.textContent = currentWeather.temperature_F;
+        TempFeels.textContent = currentWeather.feelsLike_F + "\u00B0" + "F";
+        Temperature.textContent = currentWeather.temperature_F + "\u00B0" + "F";
         // udpate system on forecast card
         const forecastCards = Array.from(document.querySelector(".forecast").children);
         forecastCards.forEach((element, index) => {
             let cardDetails = Array.from(element.children);
-            cardDetails[2].textContent = forecastArray[index].avgTemp_F;
+            cardDetails[2].textContent = forecastArray[index].avgTemp_F + "\u00B0" + "F";
         });
     }
     else {
         // update system on main card
         const TempFeels = document.querySelector(".temp-feels");
         const Temperature = document.querySelector(".temperature");
-        TempFeels.textContent = currentWeather.feelsLike_C;
-        Temperature.textContent = currentWeather.temperature_C;
+        TempFeels.textContent = currentWeather.feelsLike_C + "\u00B0" + "C";
+        Temperature.textContent = currentWeather.temperature_C + "\u00B0" + "C";
         // udpate system on forecast card
         const forecastCards = Array.from(document.querySelector(".forecast").children);
         forecastCards.forEach((element, index) => {
             let cardDetails = Array.from(element.children);
-            cardDetails[2].textContent = forecastArray[index].avgTemp_C;
+            cardDetails[2].textContent = forecastArray[index].avgTemp_C + "\u00B0" + "C";
         });
     }
 
