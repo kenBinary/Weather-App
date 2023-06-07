@@ -24,6 +24,13 @@ function updateMainInfo(currentWeather, weatherLocation) {
     region.textContent = weatherLocation.region;
 }
 function updateForecastInfo(forecastArray) {
-
+    const forecastCards = Array.from(document.querySelector(".forecast").children);
+    forecastCards.forEach((element, index) => {
+        let cardDetails = Array.from(element.children);
+        cardDetails[0].src = `https:${forecastArray[index].dayConditionIcon}`;
+        cardDetails[1].textContent = forecastArray[index].dayCondition;
+        cardDetails[2].textContent = forecastArray[index].avgTemp_C;
+        cardDetails[3].textContent = forecastArray[index].date;
+    });
 }
-export {updateMainInfo}
+export { updateMainInfo, updateForecastInfo }

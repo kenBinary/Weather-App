@@ -19,5 +19,6 @@ searchLocation.addEventListener('click', () => {
         return weatherObject;
     }).then((response) => {
         displayData.updateMainInfo(response.currentWeather, response.weatherLocation);
+        displayData.updateForecastInfo(response.forecastArray);
     });
 });
